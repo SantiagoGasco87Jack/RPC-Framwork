@@ -7,17 +7,17 @@
 <a href="https://www.npmjs.com/package/twirpscript">
   <img src="https://img.shields.io/npm/v/twirpscript.svg">
 </a>
-<a href="https://github.com/tatethurston/twirpscript/blob/master/LICENSE">
+<a href="https://github.com/SantiagoGasco87Jack/twirpscript/blob/master/LICENSE">
   <img src="https://img.shields.io/npm/l/twirpscript.svg">
 </a>
 <a href="https://www.npmjs.com/package/twirpscript">
   <img src="https://img.shields.io/npm/dy/twirpscript.svg">
 </a>
-<a href="https://github.com/tatethurston/twirpscript/actions/workflows/ci.yml">
-  <img src="https://github.com/tatethurston/twirpscript/actions/workflows/ci.yml/badge.svg">
+<a href="https://github.com/SantiagoGasco87Jack/twirpscript/actions/workflows/ci.yml">
+  <img src="https://github.com/SantiagoGasco87Jack/twirpscript/actions/workflows/ci.yml/badge.svg">
 </a>
-<a href="https://codecov.io/gh/tatethurston/twirpscript">
-  <img src="https://img.shields.io/codecov/c/github/tatethurston/twirpscript/main.svg?style=flat-square">
+<a href="https://codecov.io/gh/SantiagoGasco87Jack/twirpscript">
+  <img src="https://img.shields.io/codecov/c/github/SantiagoGasco87Jack/twirpscript/main.svg?style=flat-square">
 </a>
 
 ## What is this? 🧐
@@ -71,7 +71,7 @@ To learn more about the motivation behind Twirp (and a comparison to REST APIs a
 
 1. Isomorphic. TwirpScript's generated serializers/deserializers can be consumed in the browser or Node.js runtimes.
 
-2. Small. TwirpScript's runtime and generated code are built with [tree shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking) to minimize bundle sizes. This results in a significantly smaller bundle size than [google-protobuf](https://www.npmjs.com/package/google-protobuf). TwirpScript's runtime is 2KB (1.2 gzipped). The serialization runtime, [ProtoScript](https://github.com/tatethurston/ProtoScript), is 37KB (7.2 gzipped). ProtoScript will be eliminated from bundles when only using the generated JSON clients.
+2. Small. TwirpScript's runtime and generated code are built with [tree shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking) to minimize bundle sizes. This results in a significantly smaller bundle size than [google-protobuf](https://www.npmjs.com/package/google-protobuf). TwirpScript's runtime is 2KB (1.2 gzipped). The serialization runtime, [ProtoScript](https://github.com/SantiagoGasco87Jack/ProtoScript), is 37KB (7.2 gzipped). ProtoScript will be eliminated from bundles when only using the generated JSON clients.
 
 3. In-editor API documentation. Comments in your `.proto` files become [TSDoc](https://github.com/microsoft/tsdoc) comments in the generated code and will show inline documentation in supported editors.
 
@@ -160,7 +160,7 @@ const hat = await MakeHat({ inches: 12 });
 console.log(hat);
 ```
 
-The above client code may be used in browser or node.js runtimes. See a [Node.js client example](https://github.com/tatethurston/TwirpScript/blob/main/twirp-clientcompat/src/client-harness.ts#L11-L12).
+The above client code may be used in browser or node.js runtimes. See a [Node.js client example](https://github.com/SantiagoGasco87Jack/TwirpScript/blob/main/twirp-clientcompat/src/client-harness.ts#L11-L12).
 
 If you have an existing Twirp server you're connecting to and only need a client, that's it! You're done. If you're implementing a service as well, keep reading.
 
@@ -202,13 +202,13 @@ createServer(app).listen(PORT, () =>
 );
 ```
 
-If you're deploying to a serverless environment such as AWS Lambda, replace `createTwirpServer` above with `createTwirpServerless`. See the [aws lambda example](https://github.com/tatethurston/twirpscript/blob/main/examples/aws-lambda) for a full project!
+If you're deploying to a serverless environment such as AWS Lambda, replace `createTwirpServer` above with `createTwirpServerless`. See the [aws lambda example](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/examples/aws-lambda) for a full project!
 
 ### Configuring your Twirp Runtime
 
 #### Client
 
-Clients can be configured globally, at the RPC callsite, or with [middleware](https://github.com/tatethurston/TwirpScript/blob/main/README.md#client). The order of precedence is _middleware_ > _call site configuration_ > _global configuration_. Middleware overrides call site configuration, and call site configuration overrides global configuration.
+Clients can be configured globally, at the RPC callsite, or with [middleware](https://github.com/SantiagoGasco87Jack/TwirpScript/blob/main/README.md#client). The order of precedence is _middleware_ > _call site configuration_ > _global configuration_. Middleware overrides call site configuration, and call site configuration overrides global configuration.
 
 ##### Configuration Options
 
@@ -353,7 +353,7 @@ Custom fields can be added to the context object via [middleware](#middleware--i
 
 ##### Example
 
-If you setup middleware similiar to the [authentication middleware example](https://github.com/tatethurston/TwirpScript#example-3), you could read the `currentUser` `username` property in your service handler. See the [authentication example](https://github.com/tatethurston/twirpscript/tree/main/examples/authentication) for a full application.
+If you setup middleware similiar to the [authentication middleware example](https://github.com/SantiagoGasco87Jack/TwirpScript#example-3), you could read the `currentUser` `username` property in your service handler. See the [authentication example](https://github.com/SantiagoGasco87Jack/twirpscript/tree/main/examples/authentication) for a full application.
 
 ```ts
 import { Haberdasher, createHaberdasher } from "../../protos/haberdasher.pb";
@@ -468,7 +468,7 @@ createServer(app).listen(PORT, () =>
 );
 ```
 
-See the [authentication example](https://github.com/tatethurston/twirpscript/tree/main/examples/authentication) for a full application.
+See the [authentication example](https://github.com/SantiagoGasco87Jack/twirpscript/tree/main/examples/authentication) for a full application.
 
 ### Errors
 
@@ -493,7 +493,7 @@ If you want to respond with a Twirp Error from `middleware`, use `TwirpErrorResp
 
 TwirpScript clients and servers can be instrumented by listening to events at key moments during the request / response life cycle. These hooks are ideal placements for instrumentation such as metrics reporting and logging. Event handlers for both clients and servers are passed a `context` object as the first argument. As a best practice, this `context` object should be treated as readonly / immutable.
 
-While hooks and [middleware](https://github.com/tatethurston/TwirpScript/blob/main/README.md#middleware--interceptors) can be used to accomplish similar goals, as a best practice use _hooks_ for instrumentation and _middleware_ for mutation.
+While hooks and [middleware](https://github.com/SantiagoGasco87Jack/TwirpScript/blob/main/README.md#middleware--interceptors) can be used to accomplish similar goals, as a best practice use _hooks_ for instrumentation and _middleware_ for mutation.
 
 #### Client
 
@@ -778,11 +778,11 @@ The above `Hat` message would serialize to the following JSON:
 
 The documentation is a work in progress. Checkout the examples in the examples directory:
 
-- The [JavaScript fullstack](https://github.com/tatethurston/twirpscript/blob/main/examples/typescript-fullstack) shows a minimal browser client and server implementation in JavaScript.
-- The [TypeScript fullstack](https://github.com/tatethurston/twirpscript/blob/main/examples/javascript-fullstack) shows a minimal browser client and server implementation in TypeScript.
-- The [authentication example](https://github.com/tatethurston/twirpscript/blob/main/examples/authentication) extends the fullstack example to demonstrate authentication using tokens.
-- The [aws lambda example](https://github.com/tatethurston/twirpscript/blob/main/examples/aws-lambda) shows TwirpScript running on AWS Lambda, complete with the necessary CDK to deploy a full stack (API Gateway + Lambda).
-- The [Next.js example](https://github.com/tatethurston/twirpscript/blob/main/examples/nextjs) shows using TwirpScript in Next.js.
+- The [JavaScript fullstack](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/examples/typescript-fullstack) shows a minimal browser client and server implementation in JavaScript.
+- The [TypeScript fullstack](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/examples/javascript-fullstack) shows a minimal browser client and server implementation in TypeScript.
+- The [authentication example](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/examples/authentication) extends the fullstack example to demonstrate authentication using tokens.
+- The [aws lambda example](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/examples/aws-lambda) shows TwirpScript running on AWS Lambda, complete with the necessary CDK to deploy a full stack (API Gateway + Lambda).
+- The [Next.js example](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/examples/nextjs) shows using TwirpScript in Next.js.
 
 The examples also demonstrate testing using [jest](https://jestjs.io/).
 
@@ -829,7 +829,7 @@ plugins:
     strategy: all
 ```
 
-See the [buf example](https://github.com/tatethurston/twirpscript/blob/main/examples/buf) for a full example.
+See the [buf example](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/examples/buf) for a full example.
 
 ## Caveats, Warnings and Issues ⚠️
 
@@ -855,8 +855,8 @@ To learn more about the motivation behind Twirp (and a comparison to REST APIs a
 
 ## Contributing 👫
 
-PR's and issues welcomed! For more guidance check out [CONTRIBUTING.md](https://github.com/tatethurston/twirpscript/blob/main/CONTRIBUTING.md)
+PR's and issues welcomed! For more guidance check out [CONTRIBUTING.md](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/CONTRIBUTING.md)
 
 ## Licensing 📃
 
-See the project's [MIT License](https://github.com/tatethurston/twirpscript/blob/main/LICENSE).
+See the project's [MIT License](https://github.com/SantiagoGasco87Jack/twirpscript/blob/main/LICENSE).

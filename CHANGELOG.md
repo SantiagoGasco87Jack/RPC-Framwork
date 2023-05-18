@@ -42,7 +42,7 @@ Including a full extension results in the following TypeScript error:
 [tsserver 2691] [E] An import path cannot end with a '.ts' extension.
 ```
 
-The TypeScript team's recommendation to use `.js` extensions for `.ts` file imports when targeting ESM causes a number of issues with the broader JavaScript ecosystem. Until this situation is rectified, TwirpScript will not emit ESM compliant extensions for TypeScript. This only impacts TypeScript users who wish to target ESM in Node.JS using the TypeScript compiler, as bundlers are not pedantic about file extensions. If you're impacted by this, please join the discussion in [#202](https://github.com/tatethurston/TwirpScript/issues/202.)
+The TypeScript team's recommendation to use `.js` extensions for `.ts` file imports when targeting ESM causes a number of issues with the broader JavaScript ecosystem. Until this situation is rectified, TwirpScript will not emit ESM compliant extensions for TypeScript. This only impacts TypeScript users who wish to target ESM in Node.JS using the TypeScript compiler, as bundlers are not pedantic about file extensions. If you're impacted by this, please join the discussion in [#202](https://github.com/SantiagoGasco87Jack/TwirpScript/issues/202.)
 
 ## v0.0.63
 
@@ -71,14 +71,14 @@ export default {
 
 ## v0.0.62
 
-- Allow `rpcTransport` overrides. See [#189](https://github.com/tatethurston/TwirpScript/pull/189) for more context.
-- Remove `process.stdin.fd` usage to see if it resolves intermittent `Error: EAGAIN: resource temporarily unavailable`, read. See [#191](https://github.com/tatethurston/TwirpScript/issues/191) for more context.
+- Allow `rpcTransport` overrides. See [#189](https://github.com/SantiagoGasco87Jack/TwirpScript/pull/189) for more context.
+- Remove `process.stdin.fd` usage to see if it resolves intermittent `Error: EAGAIN: resource temporarily unavailable`, read. See [#191](https://github.com/SantiagoGasco87Jack/TwirpScript/issues/191) for more context.
 
 ## v0.0.61
 
 - Fix JSON deserialization. #181 introduced a regression that caused TwirpScript servers' JSON serialization to fail.
-- Distribute strict ESM. A CommonJS is runtime is included for legacy node clients. Code generation uses ESM and requires Node.js v14 or later. If you're using a compiler other than TypeScript such as `webpack`, please see [these instructions](https://github.com/tatethurston/TwirpScript#webpack-setup)
-- Use [ProtoScript](https://github.com/tatethurston/ProtoScript) code generation. This will result in some generated imports coming from `protoscript` instead of `twirpscript`, but this is a non breaking change. These imports were previously delegated to ProtoScript via reexports inside TwirpScript, and that indirection has now been removed.
+- Distribute strict ESM. A CommonJS is runtime is included for legacy node clients. Code generation uses ESM and requires Node.js v14 or later. If you're using a compiler other than TypeScript such as `webpack`, please see [these instructions](https://github.com/SantiagoGasco87Jack/TwirpScript#webpack-setup)
+- Use [ProtoScript](https://github.com/SantiagoGasco87Jack/ProtoScript) code generation. This will result in some generated imports coming from `protoscript` instead of `twirpscript`, but this is a non breaking change. These imports were previously delegated to ProtoScript via reexports inside TwirpScript, and that indirection has now been removed.
 
 ## v0.0.60
 
@@ -86,7 +86,7 @@ export default {
 
 ## v0.0.59
 
-- Fixes generated JSON client when using nested messages. The generated JSON serialization names were invalid for nested messages. See [#176](https://github.com/tatethurston/TwirpScript/issues/176) for more context.
+- Fixes generated JSON client when using nested messages. The generated JSON serialization names were invalid for nested messages. See [#176](https://github.com/SantiagoGasco87Jack/TwirpScript/issues/176) for more context.
 
 ## v0.0.58
 
@@ -135,7 +135,7 @@ throw new TwirpError({ code: "code", msg: "msg" });
 ## v0.0.57
 
 - Generated `.pb` files now opt out of eslint via `eslint-disable` comments
-- TwirpScript now uses [ProtoScript](https://github.com/tatethurston/ProtoScript) as the serialization runtime instead of `google-protobuf`. ProtoScript's runtime is 37KB (7.2KB gzipped) compared to google-protobuf's 231KB (46KB gzipped).
+- TwirpScript now uses [ProtoScript](https://github.com/SantiagoGasco87Jack/ProtoScript) as the serialization runtime instead of `google-protobuf`. ProtoScript's runtime is 37KB (7.2KB gzipped) compared to google-protobuf's 231KB (46KB gzipped).
 
 ## v0.0.56
 
@@ -235,9 +235,9 @@ export const HatJSON = {
 
 ## v0.0.51
 
-- When using protobuf `map` fields, map keys are now typed as strings: `Record<string, $SomeType>`. Previously other types were accepted, which would cause type checking to fail when the key was `boolean`, `bigint`, or `number`. This is also more correct because JavaScript always encodes object keys as strings. Generated type definitions for `map` types are no longer exported. See [#151](https://github.com/tatethurston/TwirpScript/issues/151) for more background.
+- When using protobuf `map` fields, map keys are now typed as strings: `Record<string, $SomeType>`. Previously other types were accepted, which would cause type checking to fail when the key was `boolean`, `bigint`, or `number`. This is also more correct because JavaScript always encodes object keys as strings. Generated type definitions for `map` types are no longer exported. See [#151](https://github.com/SantiagoGasco87Jack/TwirpScript/issues/151) for more background.
 - Empty messages now generate the full serialization interface implemented by other messages. This resolves an issue where messages with fields whose value was an empty message would fail code generation.
-- Enum serializers now have two private serialization helpers. This resolves an issue where Enums imported into other protobuf files failed code generation. See [#150](https://github.com/tatethurston/TwirpScript/issues/150) for more background.
+- Enum serializers now have two private serialization helpers. This resolves an issue where Enums imported into other protobuf files failed code generation. See [#150](https://github.com/SantiagoGasco87Jack/TwirpScript/issues/150) for more background.
 
 ## v0.0.50
 
@@ -277,7 +277,7 @@ Code generation for `map` types are no longer inlined. This is an internal refac
 
 ## v0.0.47
 
-- Add json serialization options. See the README's [configuration section](https://github.com/tatethurston/TwirpScript#configuration-) for more context.
+- Add json serialization options. See the README's [configuration section](https://github.com/SantiagoGasco87Jack/TwirpScript#configuration-) for more context.
 
 ## v0.0.46
 
@@ -305,11 +305,11 @@ Given the proto above, the generated helper is now `createHaberdasher` instead o
 
 Changes:
 
-- remove naming suffixes by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/125
-- add exclude option to `.twirp.json` by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/127
-- add null to optional ts types by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/128
+- remove naming suffixes by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/125
+- add exclude option to `.twirp.json` by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/127
+- add null to optional ts types by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/128
 
-**Full Changelog**: https://github.com/tatethurston/TwirpScript/compare/v0.0.45...v0.0.46
+**Full Changelog**: https://github.com/SantiagoGasco87Jack/TwirpScript/compare/v0.0.45...v0.0.46
 
 ## v0.0.45
 
@@ -326,64 +326,64 @@ _Breaking change:_ int64 types were previously encoded as strings, but are now e
 
 Changes:
 
-- add json_name support by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/116
-- use bigint for int64 types by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/118
+- add json_name support by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/116
+- use bigint for int64 types by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/118
 
 ## v0.0.43
 
-- Fix repeated message deserialization by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/112.
+- Fix repeated message deserialization by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/112.
 
 ## v0.0.42
 
-- More compact code generation for empty messages by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/101.
+- More compact code generation for empty messages by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/101.
 
 ## v0.0.41
 
-- Breaking Change: field names are now camelCased by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/97.
+- Breaking Change: field names are now camelCased by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/97.
   `npx twirpscript` will regenerate your `.pb.ts` files with the correct casing. If you run into significant issues with this change or prefer snake_case, please open an issue.
 
 ## v0.0.40
 
-- export MIN_SUPPORTED_VERSION_X by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/95
+- export MIN_SUPPORTED_VERSION_X by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/95
 
-**Full Changelog**: https://github.com/tatethurston/TwirpScript/compare/v0.0.39...v0.0.40
+**Full Changelog**: https://github.com/SantiagoGasco87Jack/TwirpScript/compare/v0.0.39...v0.0.40
 
 ## v0.0.39
 
-- Add TSDoc comments to generated serializer/deserializers by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/90
-- Bug Fix: invalid filepaths generated when using `root` by @arranf in https://github.com/tatethurston/TwirpScript/pull/89
+- Add TSDoc comments to generated serializer/deserializers by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/90
+- Bug Fix: invalid filepaths generated when using `root` by @arranf in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/89
 
-**Full Changelog**: https://github.com/tatethurston/TwirpScript/compare/v0.0.38...v0.0.39
+**Full Changelog**: https://github.com/SantiagoGasco87Jack/TwirpScript/compare/v0.0.38...v0.0.39
 
 ## v0.0.38
 
-- Bug Fix: remove types from js map output by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/83
-- The generated message protobuf encoders now accept partials by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/84
-- TypeScript types for map are now inlined into the generated interface by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/85
+- Bug Fix: remove types from js map output by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/83
+- The generated message protobuf encoders now accept partials by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/84
+- TypeScript types for map are now inlined into the generated interface by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/85
 
-**Full Changelog**: https://github.com/tatethurston/TwirpScript/compare/v0.0.37...v0.0.38
+**Full Changelog**: https://github.com/SantiagoGasco87Jack/TwirpScript/compare/v0.0.37...v0.0.38
 
 ## v0.0.37
 
-- Bug Fix: map generation for JavaScript clients by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/78
-- Add comment literal escaping by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/79
-- Remove version comment from generated code by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/80
+- Bug Fix: map generation for JavaScript clients by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/78
+- Add comment literal escaping by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/79
+- Remove version comment from generated code by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/80
 
-**Full Changelog**: https://github.com/tatethurston/TwirpScript/compare/v0.0.36...v0.0.37
+**Full Changelog**: https://github.com/SantiagoGasco87Jack/TwirpScript/compare/v0.0.36...v0.0.37
 
 ## v0.0.36
 
-- bytesource refactor by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/70
-- add version check by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/71
-- add map type by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/75
+- bytesource refactor by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/70
+- add version check by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/71
+- add map type by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/75
 
-**Full Changelog**: https://github.com/tatethurston/TwirpScript/compare/v0.0.35...v0.0.36
+**Full Changelog**: https://github.com/SantiagoGasco87Jack/TwirpScript/compare/v0.0.35...v0.0.36
 
 ## v0.0.35
 
-- add body to request type for middleware and hooks by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/67
+- add body to request type for middleware and hooks by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/67
 
-**Full Changelog**: https://github.com/tatethurston/TwirpScript/compare/v0.0.34...v0.0.35
+**Full Changelog**: https://github.com/SantiagoGasco87Jack/TwirpScript/compare/v0.0.34...v0.0.35
 
 ## v0.0.34
 
@@ -400,12 +400,12 @@ app.on('requestReceived', (ctx, req) => {
 
 3. `requestRouted` and `responsePrepared` are now invoked with the JavaScript object input / output to your handler, rather than the serialized input / output. This should improve debugging workflows, because you may now simply console log the input / output instead of needing to deserialize protobuf human readable output.
 
-- Bug Fix: client error hook by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/56
-- improve types for context's method and service properties by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/61
-- Tate/service object by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/62
-- context service and method now point to implementation instead of string by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/63
-- requestRouted and responsePrepared are now invoked with input/output by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/64
-- remove unnecessary isEndGroup check in serializer by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/65
-- format error output from protoc compiler by @tatethurston in https://github.com/tatethurston/TwirpScript/pull/66
+- Bug Fix: client error hook by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/56
+- improve types for context's method and service properties by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/61
+- Santiago/service object by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/62
+- context service and method now point to implementation instead of string by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/63
+- requestRouted and responsePrepared are now invoked with input/output by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/64
+- remove unnecessary isEndGroup check in serializer by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/65
+- format error output from protoc compiler by @SantiagoGasco87Jack in https://github.com/SantiagoGasco87Jack/TwirpScript/pull/66
 
-**Full Changelog**: https://github.com/tatethurston/TwirpScript/compare/v0.0.33...v0.0.34
+**Full Changelog**: https://github.com/SantiagoGasco87Jack/TwirpScript/compare/v0.0.33...v0.0.34

@@ -7,7 +7,7 @@ import type { ByteSource } from "protoscript";
  * This should never occur.
  *
  * If this error is encountered, please open an issue:
- * https://github.com/tatethurston/TwirpScript/issues/new
+ * https://github.com/SantiagoGasco87Jack/TwirpScript/issues/new
  */
 const TWIRPSCRIPT_INVARIANT = "TwirpScript Invariant";
 

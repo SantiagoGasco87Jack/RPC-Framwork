@@ -3,10 +3,10 @@
   "version": "0.0.66",
   "description": "Protobuf RPC framework for JavaScript and TypeScript",
   "license": "MIT",
-  "author": "Tate <tatethurston@gmail.com>",
+  "author": "Santiago <devsantiago87@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tatethurston/twirpscript"
+    "url": "https://github.com/SantiagoGasco87Jack/twirpscript"
   },
   "type": "module",
   "main": "./cjs/index.cjs",
